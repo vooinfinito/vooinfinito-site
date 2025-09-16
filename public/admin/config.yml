@@ -1,0 +1,94 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "config"
+    label: "Configurações do Site"
+    files:
+      - label: "Informações da Empresa"
+        name: "company"
+        file: "src/data/company.json"
+        fields:
+          - {label: "Nome da Empresa", name: "name", widget: "string"}
+          - {label: "Slogan", name: "tagline", widget: "string"}
+          - {label: "Título Principal", name: "slogan", widget: "text"}
+          - {label: "Descrição", name: "description", widget: "text"}
+          - label: "Contato"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Telefone", name: "phone", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Instagram", name: "instagram", widget: "string"}
+
+  - name: "services"
+    label: "Serviços"
+    folder: "src/data/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "number"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descrição", name: "description", widget: "text"}
+      - {label: "Detalhes", name: "details", widget: "text"}
+      - {label: "Ícone", name: "icon", widget: "select", options: ["Camera", "Video", "Search", "Building"]}
+
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "src/data/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "number"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Categoria", name: "category", widget: "string"}
+      - {label: "Descrição", name: "description", widget: "text"}
+      - {label: "Imagem", name: "image", widget: "image"}
+
+  - name: "applications"
+    label: "Aplicações"
+    folder: "src/data/applications"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "number"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descrição", name: "description", widget: "text"}
+      - {label: "Ícone", name: "icon", widget: "select", options: ["Home", "HardHat", "Calendar", "Megaphone", "Wheat"]}
+
+  - name: "differentials"
+    label: "Diferenciais"
+    folder: "src/data/differentials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "number"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descrição", name: "description", widget: "text"}
+      - {label: "Ícone", name: "icon", widget: "select", options: ["Zap", "Palette", "Users", "Clock"]}
+
+  - name: "pages"
+    label: "Páginas"
+    files:
+      - label: "Página Inicial"
+        name: "home"
+        file: "src/data/home.json"
+        fields:
+          - {label: "Título SEO", name: "seo_title", widget: "string"}
+          - {label: "Descrição SEO", name: "seo_description", widget: "text"}
+          - {label: "Palavras-chave", name: "keywords", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Título", name: "title", widget: "string"}
+              - {label: "Subtítulo", name: "subtitle", widget: "string"}
+              - {label: "Descrição", name: "description", widget: "text"}
+              - label: "Imagens de Fundo"
+                name: "background_images"
+                widget: "list"
+                field: {label: "URL da Imagem", name: "url", widget: "image"}
